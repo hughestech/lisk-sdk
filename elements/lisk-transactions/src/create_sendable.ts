@@ -21,7 +21,7 @@ import {
 	getPrivateAndPublicKeyBytesFromPassphrase,
 } from '@liskhq/lisk-cryptography';
 
-const validateRequiredInputs = (
+export const validateObligatoryInputs = (
 	type: number,
 	passphrase: string,
 	receipientId?: string | null,
@@ -63,7 +63,7 @@ const validateRequiredInputs = (
 const skipUndefined = (
 	transaction: Partial<TransactionJSON>,
 ): Partial<TransactionJSON> =>
-	// tslint:disable-next-line
+	// tslint:disable-next-line no-inferred-empty-object-type
 	Object.entries(transaction).reduce(
 		(transactionWithValues: object, [property, value]) => {
 			if (value !== undefined) {
@@ -92,7 +92,7 @@ export const createSendable = (
 		senderPublicKey,
 		timestamp,
 	} = inputs;
-	validateRequiredInputs(type, passphrase, recipientId, recipientPublicKey);
+	validateObligatoryInputs(type, passphrase, recipientId, recipientPublicKey);
 
 	const recipientIdFromPublicKey = recipientPublicKey
 		? getAddressFromPublicKey(recipientPublicKey)
