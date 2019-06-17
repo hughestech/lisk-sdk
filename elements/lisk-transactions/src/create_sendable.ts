@@ -18,7 +18,7 @@ import { TransactionJSON } from './transaction_types';
 
 import {
 	getAddressFromPublicKey,
-	getPrivateAndPublicKeyBytesFromPassphrase,
+	getPrivateAndPublicKeyFromPassphrase,
 } from '@liskhq/lisk-cryptography';
 
 export const validateObligatoryInputs = (
@@ -104,8 +104,6 @@ export const createSendable = (
 		);
 	}
 
-	const senderKeyPair = getPrivateAndPublicKeyBytesFromPassphrase(passphrase);
-
 	const transaction = new Transaction({
 		asset: asset || {},
 		amount,
@@ -114,8 +112,7 @@ export const createSendable = (
 			? recipientIdFromPublicKey
 			: recipientId,
 		senderPublicKey:
-			senderPublicKey ||
-			Buffer.from(senderKeyPair.publicKeyBytes).toString('hex'),
+			senderPublicKey || getPrivateAndPublicKeyFromPassphrase(passphrase),
 		type,
 		timestamp: timestamp || 0,
 	});
