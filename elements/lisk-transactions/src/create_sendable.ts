@@ -93,24 +93,13 @@ export const createSendable = (
 		timestamp,
 	} = inputs;
 	validateObligatoryInputs(type, passphrase, recipientId, recipientPublicKey);
-
-	const recipientIdFromPublicKey = recipientPublicKey
-		? getAddressFromPublicKey(recipientPublicKey)
-		: undefined;
-
-	if (!passphrase) {
-		throw new Error(
-			'Cannot sign a transaction without a passphrase. Specify your passphrase as in the input object (and optional second passphrase)',
-		);
-	}
-
+	
 	const transaction = new Transaction({
 		asset: asset || {},
 		amount,
 		fee,
-		recipientId: recipientIdFromPublicKey
-			? recipientIdFromPublicKey
-			: recipientId,
+		recipientId: 
+			recipientId || getAddressFromPublicKey(recipientPublicKey)
 		senderPublicKey:
 			senderPublicKey || getPrivateAndPublicKeyFromPassphrase(passphrase),
 		type,
