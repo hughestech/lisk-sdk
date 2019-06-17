@@ -60,9 +60,6 @@ const validateRequiredInputs = (
 	}
 };
 
-const asJSON = (transaction: Partial<TransactionJSON>): string =>
-	JSON.stringify(transaction);
-
 const skipUndefined = (
 	transaction: Partial<TransactionJSON>,
 ): Partial<TransactionJSON> =>
@@ -125,5 +122,5 @@ export const createSendable = (
 
 	transaction.sign(passphrase, secondPasshprase);
 
-	return asJSON(skipUndefined(transaction.toJSON()));
+	return JSON.stringify(skipUndefined(transaction.toJSON()));
 };
