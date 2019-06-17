@@ -55,7 +55,7 @@ const validateRequiredInputs = (
 		);
 	}
 
-	if (!type || typeof type !== 'number') {
+	if (typeof type !== 'number') {
 		throw new Error('type must be provided.');
 	}
 };
