@@ -1325,7 +1325,7 @@ describe('Integration tests for P2P library', () => {
 					const nodePort = NETWORK_START_PORT + index;
 					return new P2P({
 						connectTimeout: 200,
-						ackTimeout: 100,
+						ackTimeout: 200,
 						seedPeers,
 						wsEngine: 'ws',
 						populatorInterval: POPULATOR_INTERVAL_WITH_LIMIT,
