@@ -1522,7 +1522,7 @@ describe('Integration tests for P2P library', () => {
 				await wait(100);
 
 				expect(collectedMessages).to.be.an('array');
-				expect(collectedMessages.length).to.be.eql(9);
+				expect(collectedMessages.length).to.be.greaterThan(6);
 				expect(collectedMessages[0]).to.have.property('message');
 				expect(collectedMessages[0].message)
 					.to.have.property('event')
