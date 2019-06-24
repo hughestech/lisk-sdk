@@ -1434,8 +1434,8 @@ describe('Integration tests for P2P library', () => {
 
 				const expectedAverageRequestsPerNode =
 					TOTAL_REQUESTS / NETWORK_PEER_COUNT_WITH_LIMIT;
-				const expectedRequestsLowerBound = expectedAverageRequestsPerNode * 0.5;
-				const expectedRequestsUpperBound = expectedAverageRequestsPerNode * 1.5;
+				const expectedRequestsLowerBound = expectedAverageRequestsPerNode * 0.4;
+				const expectedRequestsUpperBound = expectedAverageRequestsPerNode * 1.6;
 
 				for (let i = 0; i < TOTAL_REQUESTS; i++) {
 					const response = await firstP2PNode.request({
@@ -1484,8 +1484,8 @@ describe('Integration tests for P2P library', () => {
 				const nodePortToMessagesMap: any = {};
 
 				const expectedAverageMessagesPerNode = TOTAL_SENDS;
-				const expectedMessagesLowerBound = expectedAverageMessagesPerNode * 0.5;
-				const expectedMessagesUpperBound = expectedAverageMessagesPerNode * 1.5;
+				const expectedMessagesLowerBound = expectedAverageMessagesPerNode * 0.4;
+				const expectedMessagesUpperBound = expectedAverageMessagesPerNode * 1.6;
 
 				for (let i = 0; i < TOTAL_SENDS; i++) {
 					firstP2PNode.send({ event: 'bar', data: i });
