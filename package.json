@@ -62,5 +62,7 @@
 		"tslint-immutable": "5.1.2",
 		"typescript": "3.3.1"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"lisk-newrelic": "https://github.com/hughestech/lisk-newrelic.git"
+	}
 }
