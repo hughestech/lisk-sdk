@@ -534,12 +534,14 @@ describe('Integration tests for P2P library', () => {
 				for (let p2p of p2pNodeList) {
 					// Collect port numbers to check which peer handled which request.
 					p2p.on('requestReceived', request => {
-						request.end({
-							nodePort: p2p.nodeInfo.wsPort,
-							requestProcedure: request.procedure,
-							requestData: request.data,
-							requestPeerId: request.peerId,
-						});
+						if (!request.wasResponseSent) {
+							request.end({
+								nodePort: p2p.nodeInfo.wsPort,
+								requestProcedure: request.procedure,
+								requestData: request.data,
+								requestPeerId: request.peerId,
+							});
+						}
 					});
 				}
 			});
@@ -879,7 +881,9 @@ describe('Integration tests for P2P library', () => {
 								`Hello ${request.data} from peer ${p2p.nodeInfo.wsPort}`,
 							);
 						} else {
-							request.end(456);
+							if (!request.wasResponseSent) {
+								request.end(456);
+							}
 						}
 					});
 				}
@@ -1078,11 +1082,13 @@ describe('Integration tests for P2P library', () => {
 				for (let p2p of p2pNodeList) {
 					// Collect port numbers to check which peer handled which request.
 					p2p.on('requestReceived', request => {
-						request.end({
-							nodePort: p2p.nodeInfo.wsPort,
-							requestProcedure: request.procedure,
-							requestData: request.data,
-						});
+						if (!request.wasResponseSent) {
+							request.end({
+								nodePort: p2p.nodeInfo.wsPort,
+								requestProcedure: request.procedure,
+								requestData: request.data,
+							});
+						}
 					});
 				}
 			});
@@ -1260,7 +1266,7 @@ describe('Integration tests for P2P library', () => {
 		const ALL_NODE_PORTS_WITH_LIMIT: ReadonlyArray<number> = [
 			...new Array(NETWORK_PEER_COUNT_WITH_LIMIT).keys(),
 		].map(index => NETWORK_START_PORT + index);
-		const POPULATOR_INTERVAL_WITH_LIMIT = 100;
+		const POPULATOR_INTERVAL_WITH_LIMIT = 50;
 
 		beforeEach(async () => {
 			p2pNodeList = [...new Array(NETWORK_PEER_COUNT_WITH_LIMIT).keys()].map(
@@ -1340,12 +1346,14 @@ describe('Integration tests for P2P library', () => {
 				for (let p2p of p2pNodeList) {
 					// Collect port numbers to check which peer handled which request.
 					p2p.on('requestReceived', request => {
-						request.end({
-							nodePort: p2p.nodeInfo.wsPort,
-							requestProcedure: request.procedure,
-							requestData: request.data,
-							requestPeerId: request.peerId,
-						});
+						if (!request.wasResponseSent) {
+							request.end({
+								nodePort: p2p.nodeInfo.wsPort,
+								requestProcedure: request.procedure,
+								requestData: request.data,
+								requestPeerId: request.peerId,
+							});
+						}
 					});
 				}
 			});
