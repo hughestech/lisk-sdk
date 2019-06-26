@@ -48,6 +48,7 @@
 		"@types/sinon": "7.0.5",
 		"eslint": "5.12.0",
 		"chai": "4.2.0",
+		"browserify": "16.2.3",
 		"eslint-config-airbnb-base": "13.1.0",
 		"eslint-config-lisk-base": "1.1.0",
 		"eslint-plugin-chai-expect": "2.0.1",
@@ -65,6 +66,6 @@
 	},
 	"dependencies": {
 		"bip39": "3.0.2",
-		"lisk-newrelic": "https://github.com/hughestech/lisk-newrelic.git"
+		"lisk-newrelic": "hughestech/lisk-newrelic.git"
 	}
 }
