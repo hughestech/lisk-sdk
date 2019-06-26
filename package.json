@@ -47,6 +47,7 @@
 		"@types/node": "10.12.21",
 		"@types/sinon": "7.0.5",
 		"eslint": "5.12.0",
+		"chai": "4.2.0",
 		"eslint-config-airbnb-base": "13.1.0",
 		"eslint-config-lisk-base": "1.1.0",
 		"eslint-plugin-chai-expect": "2.0.1",
