@@ -67,6 +67,6 @@
 	},
 	"dependencies": {
 		"bip39": "3.0.2",
-		"lisk-newrelic": "hughestech/lisk-newrelic.git"
+		"lisk-newrelic": "https://github.com/hughestech/lisk-newrelic.git"
 	}
 }
