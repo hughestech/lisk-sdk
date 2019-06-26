@@ -33,7 +33,7 @@
 		"test": "lerna run test",
 		"test:node": "lerna run test:node",
 		"test:browser": "lerna run test:browser",
-		"build": "lerna run build",
+		"build": "lerna bootstrap --hoist && lerna run build",
 		"build:browsertest": "lerna run build:browsertest",
 		"cover": "lerna run cover",
 		"init": "./scripts/init.sh"
