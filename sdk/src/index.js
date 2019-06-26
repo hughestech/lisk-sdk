@@ -22,7 +22,7 @@ const {
 	version,
 	systemDirs,
 	configurator,
-} = require('lisk-framework');
+} = require('lisk-sdk/lisk-framework');
 
 const samples = require('./samples');
 
