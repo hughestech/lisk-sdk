@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-//'use strict';
+'use strict';
 
 const assert = require('assert');
 const {
@@ -23,7 +23,7 @@ const {
 	VoteTransaction,
 	MultisignatureTransaction,
 } = require('@liskhq/lisk-transactions');
-const { validator: liskValidator } = require('@liskhq/lisk-validator');
+const { validator: liskValidator } = require('./elements/lisk-validator');
 const randomstring = require('randomstring');
 const _ = require('lodash');
 const Controller = require('./controller');
