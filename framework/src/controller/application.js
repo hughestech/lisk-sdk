@@ -12,7 +12,7 @@
  * Removal or modification of this copyright notice is prohibited.
  */
 
-'use strict';
+//'use strict';
 
 const assert = require('assert');
 const {
